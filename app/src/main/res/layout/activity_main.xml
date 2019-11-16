@@ -34,7 +34,7 @@
         app:navGraph="@navigation/mobile_navigation" />
 
     <Button
-        android:id="@+id/signupButton"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log In"
