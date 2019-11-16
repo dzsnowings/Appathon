@@ -1,6 +1,8 @@
 package com.example.studybuddyfinder;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -14,13 +16,13 @@ import androidx.navigation.ui.NavigationUI;
 public class MainActivity extends AppCompatActivity {
     Button loginButton, signupButton;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
 
+        loginButton = findViewById(R.id.loginButton);
+        signupButton = findViewById(R.id.signupButton);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -30,6 +32,23 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-    }
 
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.fragment_login);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.fragment_signup);
+                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+    }
 }
