@@ -15,26 +15,26 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_signup);
 
-        EditText firstNameText = findViewById(R.id.firstName);
-        EditText lastNameText = findViewById(R.id.lastName);
-        EditText emailText = findViewById(R.id.email);
-        EditText phoneText = findViewById(R.id.phone);
-        EditText usernameText = findViewById(R.id.username);
-        EditText passwordText = findViewById(R.id.password);
-        EditText confirmText = findViewById(R.id.confirmPassword);
-        Button signupButton = findViewById(R.id.signupButton);
-
-        String firstName = firstNameText.getText().toString();
-        String lastName = lastNameText.getText().toString();
-        String email = emailText.getText().toString();
-        String phone = phoneText.getText().toString();
-        String username = usernameText.getText().toString();
-        final String password = passwordText.getText().toString();
-        final String confirm = confirmText.getText().toString();
+        final EditText firstNameText = findViewById(R.id.firstName);
+        final EditText lastNameText = findViewById(R.id.lastName);
+        final EditText emailText = findViewById(R.id.email);
+        final EditText phoneText = findViewById(R.id.phone);
+        final EditText usernameText = findViewById(R.id.username);
+        final EditText passwordText = findViewById(R.id.password);
+        final EditText confirmText = findViewById(R.id.confirmPassword);
+        final Button signupButton = findViewById(R.id.signupButton);
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String firstName = firstNameText.getText().toString();
+                String lastName = lastNameText.getText().toString();
+                String email = emailText.getText().toString();
+                String phone = phoneText.getText().toString();
+                String username = usernameText.getText().toString();
+                String password = passwordText.getText().toString();
+                String confirm = confirmText.getText().toString();
+                
                 if (!password.equals(confirm)) {
                     String error = "Passwords do not match.";
                     Toast.makeText(SignupActivity.this, error, Toast.LENGTH_SHORT).show();
