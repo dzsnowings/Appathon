@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#F7BAE7"
         android:fontFamily="sans-serif-medium"
         android:text="Sign Up"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
@@ -98,12 +98,12 @@
         app:srcCompat="@drawable/books" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/button3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#F7BAE7"
         android:text="Log In"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
