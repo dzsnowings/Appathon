@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                                     count++;
                                     Log.d("GG", document.getId() + " => " + document.getData());
                                     Intent intent = new Intent(LoginActivity.this, ContentActivity.class);
+                                    intent.putExtra("key", document.getId());
                                     startActivity(intent);
                                 }
                                 if(count == 0) {

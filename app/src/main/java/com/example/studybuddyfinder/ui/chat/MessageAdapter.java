@@ -21,8 +21,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
         ViewHolder(View view) {
             super(view);
-            this.tvMessage = view.findViewById(R.id.messageEditText);
-            this.tvSender = view.findViewById(R.id.loginUsername);
+            this.tvMessage = view.findViewById(R.id.tvMessage);
+            this.tvSender = view.findViewById(R.id.tvSender);
         }
 
         private void setMessage(Message message) {
