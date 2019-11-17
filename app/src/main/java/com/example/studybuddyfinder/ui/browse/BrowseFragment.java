@@ -52,7 +52,6 @@ public class BrowseFragment extends Fragment implements RecyclerViewAdapter.Item
             groups.get(i).add(CreateGroupFragment.getClassName());
             groups.get(i).add("location" + i);
             groups.get(i).add("time" + i);
-            groups.get(i).add("type" + i);
         }
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
