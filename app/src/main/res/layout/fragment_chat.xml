@@ -34,6 +34,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="415dp"
         android:layout_height="602dp"
+        android:background="#EDCDF0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +44,7 @@
         android:id="@+id/imageView5"
         android:layout_width="415dp"
         android:layout_height="64dp"
+        android:background="#ECE3AB"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintStart_toStartOf="parent" />
 
