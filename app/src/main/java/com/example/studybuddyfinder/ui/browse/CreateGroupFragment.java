@@ -13,7 +13,7 @@ import com.example.studybuddyfinder.R;
 public class CreateGroupFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_create_event, container, false);
+        View view = inflater.inflate(R.layout.fragment_create_group, container, false);
         return view;
     }
 
