@@ -27,14 +27,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     // you provide access to all the views for a data item in a view holder
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         // each data item is just a string in this case
-        public TextView classtv, locationtv, timetv, typetv;
+        public TextView classtv, locationtv, timetv;
 
         public ViewHolder(View itemView) {
             super(itemView);
             classtv = itemView.findViewById(R.id.classTV);
             locationtv = itemView.findViewById(R.id.locationTV);
             timetv = itemView.findViewById(R.id.timeTV);
-            typetv = itemView.findViewById(R.id.typeTV);
             itemView.setOnClickListener(this);
         }
 
@@ -69,12 +68,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         String className = groups.get(position).get(0);
         String location = groups.get(position).get(1);
         String time = groups.get(position).get(2);
-        String type = groups.get(position).get(3);
 
         holder.classtv.setText(className);
         holder.locationtv.setText(location);
         holder.timetv.setText(time);
-        holder.typetv.setText(type);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
