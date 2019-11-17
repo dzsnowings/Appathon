@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "913629332365",
+    "firebase_url": "https://studybuddyfinder-e1dcb.firebaseio.com",
+    "project_id": "studybuddyfinder-e1dcb",
+    "storage_bucket": "studybuddyfinder-e1dcb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913629332365:android:40ef7c0c77bb8e88c673c4",
+        "android_client_info": {
+          "package_name": "com.example.studybuddyfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913629332365-akuoml1efprchuhgfp2c1qqs5pdg53gr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.studybuddyfinder",
+            "certificate_hash": "cb53b95cb3f55f8f5006aa45aae79fc0a1835ced"
+          }
+        },
+        {
+          "client_id": "913629332365-1ise0jc8i5hdd0vq1li35krsqrh814kp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTBcLZOnVxiI0q1pJa3eNU2XgKXCfxRso"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913629332365-1ise0jc8i5hdd0vq1li35krsqrh814kp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
