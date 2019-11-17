@@ -2,16 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#93E6FA"
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/confirmPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="99dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
@@ -24,10 +26,10 @@
 
     <EditText
         android:id="@+id/signupUsername"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
-        android:layout_marginEnd="99dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="288dp"
         android:ems="10"
         android:hint="Username"
@@ -39,11 +41,11 @@
 
     <EditText
         android:id="@+id/signupPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="99dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
@@ -56,8 +58,11 @@
 
     <Button
         android:id="@+id/signupSignupButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#FFFFFF"
         android:text="Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,11 +73,11 @@
 
     <EditText
         android:id="@+id/firstName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="60dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
@@ -84,11 +89,11 @@
 
     <EditText
         android:id="@+id/lastName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="99dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName"
@@ -100,11 +105,11 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="99dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
@@ -116,11 +121,11 @@
 
     <EditText
         android:id="@+id/phone"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="99dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="99dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Phone Number (optional)"
         android:inputType="textPersonName"
