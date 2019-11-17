@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                     String message = "You did not enter username or password";
                     Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
                 } else {
-                    FirebaseFirestore.getInstance().collectionGroup("Users").whereEqualTo("Username", "dzhao").whereEqualTo("Password", password)
+                    FirebaseFirestore.getInstance().collectionGroup("Users").whereEqualTo("Username", username).whereEqualTo("Password", password)
                             .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                                     count++;
                                     Log.d("GG", document.getId() + " => " + document.getData());
                                     Intent intent = new Intent(LoginActivity.this, ContentActivity.class);
+                                    intent.putExtra("key", document.getId());
                                     startActivity(intent);
                                 }
                                 if(count == 0) {
