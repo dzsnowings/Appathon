@@ -1,13 +1,9 @@
 package com.example.studybuddyfinder.ui.profile;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,25 +11,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.studybuddyfinder.R;
 
 import java.io.File;
 
 public class EditProfileFragment extends Fragment {
-    ImageButton changeImage;
-    ImageView profilePic;
-    EditText nameText, gradeText, majorText;
-    Button saveButton;
     private static final int GALLERY_REQUEST_CODE = 100;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -46,17 +34,17 @@ public class EditProfileFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        nameText = view.findViewById(R.id.nameText);
-        gradeText = view.findViewById(R.id.gradeText);
-        majorText = view.findViewById(R.id.majorText);
-        saveButton = view.findViewById(R.id.saveButton);
+        EditText nameText = view.findViewById(R.id.editNameText);
+        EditText gradeText = view.findViewById(R.id.editGradeText);
+        EditText majorText = view.findViewById(R.id.editMajorText);
+        Button saveButton = view.findViewById(R.id.saveButton);
 
         String name =  nameText.getText().toString();
         String grade =  gradeText.getText().toString();
         String major =  majorText.getText().toString();
 
-        profilePic = (ImageView) view.findViewById(R.id.profilePic);
-        changeImage = (ImageButton) view.findViewById(R.id.changeImage);
+        ImageView profilePic = (ImageView) view.findViewById(R.id.profilePic);
+        ImageButton changeImage = (ImageButton) view.findViewById(R.id.changeImage);
 
         changeImage.setOnClickListener(new View.OnClickListener() {
             @Override

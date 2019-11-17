@@ -8,18 +8,25 @@
     <fragment
         android:id="@+id/navigation_browse"
         android:name="com.example.studybuddyfinder.ui.browse.BrowseFragment"
-        android:label="@string/title_home"
+        android:label="Browse"
         tools:layout="@layout/fragment_browse" />
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.studybuddyfinder.ui.profile.ProfileFragment"
-        android:label="@string/title_dashboard"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_editProfile"
+        android:name="com.example.studybuddyfinder.ui.profile.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/edit_profile" />
 
     <fragment
         android:id="@+id/navigation_chat"
         android:name="com.example.studybuddyfinder.ui.chat.ChatFragment"
-        android:label="@string/title_notifications"
+        android:label="Chat"
         tools:layout="@layout/fragment_chat" />
+
 </navigation>
