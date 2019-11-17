@@ -1,5 +1,6 @@
 package com.example.studybuddyfinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,9 @@ public class SignupActivity extends AppCompatActivity {
                     String error = "Passwords do not match.";
                     Toast.makeText(SignupActivity.this, error, Toast.LENGTH_SHORT).show();
                 }
+
+                Intent intent = new Intent(SignupActivity.this, ContentActivity.class);
+                startActivity(intent);
             }
         });
     }
