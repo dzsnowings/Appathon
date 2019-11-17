@@ -28,9 +28,9 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nameText = findViewById(R.id.gradeText);
+        nameText = findViewById(R.id.nameText);
         gradeText = findViewById(R.id.gradeText);
-        majorText = findViewById(R.id.gradeText);
+        majorText = findViewById(R.id.majorText);
 
         String name =  nameText.getText().toString();
         String grade =  gradeText.getText().toString();

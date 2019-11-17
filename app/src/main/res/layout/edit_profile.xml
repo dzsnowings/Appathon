@@ -35,7 +35,7 @@
         tools:srcCompat="@tools:sample/avatars[2]" />
 
     <EditText
-        android:id="@+id/gradeText"
+        android:id="@+id/nameText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -70,7 +70,7 @@
         app:layout_constraintVertical_bias="0.688" />
 
     <EditText
-        android:id="@+id/gradeText"
+        android:id="@+id/majorText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
