@@ -47,8 +47,8 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:fontFamily="sans-serif-smallcaps"
+        android:hint="Class"
         android:inputType="textPersonName"
-        android:text="Class"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -65,14 +65,13 @@
         android:layout_marginBottom="412dp"
         android:ems="10"
         android:fontFamily="sans-serif-smallcaps"
+        android:hint="Location"
         android:inputType="textPersonName"
-        android:text="Location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintTop_toBottomOf="@+id/classText" />
 
     <Spinner
         android:id="@+id/timeSpinner"
@@ -94,8 +93,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginEnd="135dp"
         android:ems="10"
+        android:hint="Time"
         android:inputType="textPersonName"
-        android:text="Time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

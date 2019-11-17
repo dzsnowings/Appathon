@@ -31,7 +31,7 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Button editProfileButton = view.findViewById(R.id.editButton);
+        Button editProfileButton = view.findViewById(R.id.saveButton);
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
