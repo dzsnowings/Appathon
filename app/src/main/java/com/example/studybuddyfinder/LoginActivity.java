@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                     String message = "You did not enter username or password";
                     Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
                 } else {
-                    FirebaseFirestore.getInstance().collectionGroup("Users").whereEqualTo("Username", "dzhao").whereEqualTo("Password", password)
+                    FirebaseFirestore.getInstance().collectionGroup("Users").whereEqualTo("Username", username).whereEqualTo("Password", password)
                             .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {

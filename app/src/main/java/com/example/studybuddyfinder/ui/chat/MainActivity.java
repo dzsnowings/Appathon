@@ -26,6 +26,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,14 +46,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_chat);
 
-        rvMessages = findViewById(R.id.recyclerView);
+
+        rvMessages =  (RecyclerView) findViewById(R.id.recyclerView);
         etMessage = findViewById(R.id.messageEditText);
         imageBtn = findViewById(R.id.imageButton);
 
         messages = new ArrayList<>();
         messageAdapter = new MessageAdapter(messages);
-        rvMessages.setLayoutManager(new LinearLayoutManager(this));
         rvMessages.setAdapter(messageAdapter);
+        rvMessages.setLayoutManager(new LinearLayoutManager(this));
 
         FirebaseFirestore.getInstance().collection("messages")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Message tempMessage = new Message(UUID.randomUUID().toString(),
                         content,
-                        "foo",
+                        userId,
                         System.currentTimeMillis()
                 );
 

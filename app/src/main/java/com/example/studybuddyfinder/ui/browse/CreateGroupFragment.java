@@ -17,7 +17,7 @@ import com.example.studybuddyfinder.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CreateGroupFragment extends Fragment {
+public class CreateGroupFragment extends Fragment implements AdapterView.OnItemSelectedListener {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_group, container, false);
@@ -29,33 +29,40 @@ public class CreateGroupFragment extends Fragment {
         SpinnerArray.add("AM");
         SpinnerArray.add("PM");
 
+        List<String> typeArray = new ArrayList<String>();
+        typeArray.add("Test");
+        typeArray.add("Homework");
+        typeArray.add("Study");
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_spinner_item, SpinnerArray);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        Spinner spinner = (Spinner) view.findViewById(R.id.timeSpinner);
-        spinner.setAdapter(adapter);
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(this.getActivity(),
+                android.R.layout.simple_spinner_item, typeArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        Spinner spinner1 = (Spinner) view.findViewById(R.id.timeSpinner);
+        spinner1.setAdapter(adapter);
 
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view,
-                                       int position, long id) {
-                Object item = adapterView.getItemAtPosition(position);
-                if (item != null) {
-                    Toast.makeText(CreateGroupFragment.this.getActivity(), item.toString(),
-                            Toast.LENGTH_SHORT).show();
-                }
-                Toast.makeText(CreateGroupFragment.this.getActivity(), "Selected",
-                        Toast.LENGTH_SHORT).show();
+        Spinner typeSpinner = (Spinner) view.findViewById(R.id.typeText);
+        typeSpinner.setAdapter(typeAdapter);
 
-            }
+        spinner1.setOnItemSelectedListener(this);
+        typeSpinner.setOnItemSelectedListener(this);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // TODO Auto-generated method stub
 
-            }
-        });
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
+
