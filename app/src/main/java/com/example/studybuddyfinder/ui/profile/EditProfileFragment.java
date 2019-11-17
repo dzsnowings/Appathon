@@ -11,6 +11,7 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -19,6 +20,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -30,6 +33,7 @@ public class EditProfileFragment extends Fragment {
     ImageButton changeImage;
     ImageView profilePic;
     EditText nameText, gradeText, majorText;
+    Button saveButton;
     private static final int GALLERY_REQUEST_CODE = 100;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -45,6 +49,7 @@ public class EditProfileFragment extends Fragment {
         nameText = view.findViewById(R.id.nameText);
         gradeText = view.findViewById(R.id.gradeText);
         majorText = view.findViewById(R.id.majorText);
+        saveButton = view.findViewById(R.id.saveButton);
 
         String name =  nameText.getText().toString();
         String grade =  gradeText.getText().toString();
@@ -84,8 +89,19 @@ public class EditProfileFragment extends Fragment {
 
                 }
             }
-
              */
+        });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment profileView = new ProfileFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fragment, profileView);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
         });
     }
 }

@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/profileImage"
+        android:id="@+id/profilePic"
         android:layout_width="161dp"
         android:layout_height="184dp"
         app:layout_constraintEnd_toEndOf="parent"
