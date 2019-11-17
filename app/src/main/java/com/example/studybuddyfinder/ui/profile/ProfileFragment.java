@@ -15,7 +15,14 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.studybuddyfinder.ContentActivity;
 import com.example.studybuddyfinder.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.w3c.dom.Text;
 
 public class ProfileFragment extends Fragment {
 
@@ -31,7 +38,15 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Button editProfileButton = view.findViewById(R.id.saveButton);
+        final TextView realname = view.findViewById(R.id.realName);
+        DocumentReference doc = FirebaseFirestore.getInstance().collection("Users").document(ContentActivity.key);
+        doc.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                 realname.setText(documentSnapshot.getString("First") + " " + documentSnapshot.getString("Last"));
+            }
+        });
+        Button editProfileButton = view.findViewById(R.id.createButton);
         editProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

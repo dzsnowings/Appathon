@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.studybuddyfinder.ContentActivity;
 import com.example.studybuddyfinder.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.File;
 
@@ -34,12 +38,12 @@ public class EditProfileFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        EditText nameText = view.findViewById(R.id.editNameText);
+        final EditText nameText = view.findViewById(R.id.editNameText);
         EditText gradeText = view.findViewById(R.id.editGradeText);
         EditText majorText = view.findViewById(R.id.editMajorText);
         Button saveButton = view.findViewById(R.id.saveButton);
 
-        String name =  nameText.getText().toString();
+        //String name =  nameText.getText().toString();
         String grade =  gradeText.getText().toString();
         String major =  majorText.getText().toString();
 
@@ -83,6 +87,15 @@ public class EditProfileFragment extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final String name = nameText.getText().toString();
+                FirebaseFirestore.getInstance().collection("Users").document(ContentActivity.key).update(
+                        "First", name
+                ).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("GG", "Update successful for " + ContentActivity.key);
+                    }
+                });
                 Fragment profileView = new ProfileFragment();
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
