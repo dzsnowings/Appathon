@@ -29,11 +29,11 @@ public class CreateGroupFragment extends Fragment {
         SpinnerArray.add("AM");
         SpinnerArray.add("PM");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_spinner_item, SpinnerArray);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        Spinner spinner = (Spinner) findViewById(R.id.timeSpinner);
+        Spinner spinner = (Spinner) view.findViewById(R.id.timeSpinner);
         spinner.setAdapter(adapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -43,10 +43,10 @@ public class CreateGroupFragment extends Fragment {
                                        int position, long id) {
                 Object item = adapterView.getItemAtPosition(position);
                 if (item != null) {
-                    Toast.makeText(CreateGroupFragment.this, item.toString(),
+                    Toast.makeText(CreateGroupFragment.this.getActivity(), item.toString(),
                             Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(CreateGroupFragment.this, "Selected",
+                Toast.makeText(CreateGroupFragment.this.getActivity(), "Selected",
                         Toast.LENGTH_SHORT).show();
 
             }
