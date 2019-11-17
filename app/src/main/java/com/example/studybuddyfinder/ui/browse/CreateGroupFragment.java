@@ -27,6 +27,9 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class CreateGroupFragment extends Fragment {
+    private static EditText className;
+    private static int numGroups = 0;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_create_group, container, false);
@@ -44,32 +47,30 @@ public class CreateGroupFragment extends Fragment {
 
         Spinner spinner = (Spinner) view.findViewById(R.id.timeSpinner);
         spinner.setAdapter(adapter);
-        final EditText name = view.findViewById(R.id.classText);
+        className = view.findViewById(R.id.classText);
         Button makeGroup = view.findViewById(R.id.createButton);
         makeGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Map<String, Object> group = new HashMap<>();
-                group.put("Class", name.getText().toString());
+                group.put("Class", className.getText().toString());
                 group.put("Members", Arrays.asList(ContentActivity.key));
 
                 FirebaseFirestore.getInstance().collection("Groups")
-                        .document(name.getText().toString()).set(group)
+                        .document(className.getText().toString()).set(group)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.d("GG", "Successfully added group");
+                                numGroups++;
                             }
                         });
             }
             });
 
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view,
-                                       int position, long id) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 Object item = adapterView.getItemAtPosition(position);
                 if (item != null) {
                     Toast.makeText(CreateGroupFragment.this.getActivity(), item.toString(),
@@ -77,14 +78,20 @@ public class CreateGroupFragment extends Fragment {
                 }
                 Toast.makeText(CreateGroupFragment.this.getActivity(), "Selected",
                         Toast.LENGTH_SHORT).show();
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 // TODO Auto-generated method stub
-
             }
         });
+    }
+
+    public static String getClassName() {
+        return className.getText().toString();
+    }
+
+    public static int getNumGroups() {
+        return numGroups;
     }
 }

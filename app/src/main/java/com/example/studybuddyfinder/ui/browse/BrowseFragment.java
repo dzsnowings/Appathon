@@ -47,9 +47,9 @@ public class BrowseFragment extends Fragment implements RecyclerViewAdapter.Item
         });
 
         ArrayList<ArrayList<String>> groups = new ArrayList<ArrayList<String>>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < CreateGroupFragment.getNumGroups(); i++) {
             groups.add(new ArrayList<String>());
-            groups.get(i).add("class" + i);
+            groups.get(i).add(CreateGroupFragment.getClassName());
             groups.get(i).add("location" + i);
             groups.get(i).add("time" + i);
             groups.get(i).add("type" + i);
