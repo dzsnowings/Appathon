@@ -1,5 +1,6 @@
 package com.example.studybuddyfinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,11 +26,13 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordText.getText().toString();
 
                 if (!password.equals(password)) {
-                    String message = "Successfully logged in.";
-                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
-                } else {
                     String message = "Username and/or password is incorrect. Please try again.";
                     Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                } else {
+                    String message = "Successfully logged in.";
+                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, ContentActivity.class);
+                    startActivity(intent);
                 }
             }
         });
