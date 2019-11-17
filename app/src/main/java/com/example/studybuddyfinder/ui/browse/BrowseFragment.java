@@ -1,6 +1,7 @@
 package com.example.studybuddyfinder.ui.browse;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studybuddyfinder.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BrowseFragment extends Fragment implements RecyclerViewAdapter.ItemClickListener {
@@ -46,18 +53,32 @@ public class BrowseFragment extends Fragment implements RecyclerViewAdapter.Item
             }
         });
 
-        ArrayList<ArrayList<String>> groups = new ArrayList<ArrayList<String>>();
-        for (int i = 0; i < CreateGroupFragment.getNumGroups(); i++) {
-            groups.add(new ArrayList<String>());
-            groups.get(i).add(CreateGroupFragment.getClassName());
-            groups.get(i).add("location" + i);
-            groups.get(i).add("time" + i);
-        }
+        final View viewfinal = view;
+        final ArrayList<ArrayList<String>> groups = new ArrayList<ArrayList<String>>();
+        FirebaseFirestore.getInstance().collection("Groups").get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        Log.d("GG", "Entered Loop");
+                        for (QueryDocumentSnapshot snap : queryDocumentSnapshots) {
+                            Log.d("GG", "New Group");
+                            final ArrayList<String> group = new ArrayList<>();
+                            group.add(snap.getString("Class"));
+                            group.add(snap.getString("Location"));
+                            group.add(snap.getString("Time"));
+                            group.add("Custom Message");
+                            groups.add(group);
+                        }
+                        Log.d("GG", (new Integer(groups.size())).toString());
+                        RecyclerView recyclerView = viewfinal.findViewById(R.id.recyclerView);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(BrowseFragment.this.getContext()));
+                        adapter = new RecyclerViewAdapter(BrowseFragment.this.getContext(), groups);
+                        recyclerView.setAdapter(adapter);
+                    }
+                });
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        adapter = new RecyclerViewAdapter(this.getContext(), groups);
-        recyclerView.setAdapter(adapter);
+
+
     }
     @Override
     public void onItemClick(View view, int position) {
