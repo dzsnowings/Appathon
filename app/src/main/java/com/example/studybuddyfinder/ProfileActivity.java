@@ -28,7 +28,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nameText = findViewById(R.id.nameText);
+        nameText = findViewById(R.id.editNameText);
         gradeText = findViewById(R.id.gradeText);
         majorText = findViewById(R.id.majorText);
 
