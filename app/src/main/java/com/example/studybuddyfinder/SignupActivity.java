@@ -26,7 +26,7 @@ public class SignupActivity extends AppCompatActivity {
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick (View v){
                 String firstName = firstNameText.getText().toString();
                 String lastName = lastNameText.getText().toString();
                 String email = emailText.getText().toString();
@@ -34,15 +34,21 @@ public class SignupActivity extends AppCompatActivity {
                 String username = usernameText.getText().toString();
                 String password = passwordText.getText().toString();
                 String confirm = confirmText.getText().toString();
-                
+
                 if (!password.equals(confirm)) {
                     String error = "Passwords do not match.";
                     Toast.makeText(SignupActivity.this, error, Toast.LENGTH_SHORT).show();
                 }
 
-                Intent intent = new Intent(SignupActivity.this, ContentActivity.class);
-                startActivity(intent);
-            }
-        });
+                if (!password.equals(confirm) || firstName.equals("") || lastName.equals("") || email.equals("") || username.equals("") || password.equals("")) {
+                    String error = "Some required information is missing.";
+                    Toast.makeText(SignupActivity.this, error, Toast.LENGTH_SHORT).show();
+                }
+                else {
+                        Intent intent = new Intent(SignupActivity.this, ContentActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
+        }
     }
-}

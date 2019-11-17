@@ -28,6 +28,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (!password.equals(password)) {
                     String message = "Username and/or password is incorrect. Please try again.";
                     Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                } else if (!(password.equals("") && username.equals(""))) {
+                    String message = "You did not enter username or password";
+                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
                 } else {
                     String message = "Successfully logged in.";
                     Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
