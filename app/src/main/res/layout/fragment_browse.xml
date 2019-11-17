@@ -11,7 +11,7 @@
     android:paddingTop="?attr/actionBarSize">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/browseText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-smallcaps"
@@ -25,7 +25,7 @@
         app:layout_constraintVertical_bias="0.008" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/browseImage"
         android:layout_width="77dp"
         android:layout_height="72dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.235" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/createGroupButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
