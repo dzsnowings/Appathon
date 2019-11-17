@@ -9,18 +9,13 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.net.URI;
 
 public class ProfileActivity extends AppCompatActivity {
     ImageButton changeImage;
@@ -33,9 +28,9 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        nameText = findViewById(R.id.nameText);
+        nameText = findViewById(R.id.gradeText);
         gradeText = findViewById(R.id.gradeText);
-        majorText = findViewById(R.id.majorText);
+        majorText = findViewById(R.id.gradeText);
 
         String name =  nameText.getText().toString();
         String grade =  gradeText.getText().toString();

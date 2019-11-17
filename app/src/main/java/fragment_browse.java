@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.studybuddyfinder.R;
 import java.util.ArrayList;
 
-public class fragment_home extends AppCompatActivity {
+public class fragment_browse extends AppCompatActivity {
 
     ListView listView;
 
