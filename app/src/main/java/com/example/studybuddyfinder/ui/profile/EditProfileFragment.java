@@ -1,4 +1,4 @@
-package com.example.studybuddyfinder;
+package com.example.studybuddyfinder.ui.profile;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,36 +8,50 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.studybuddyfinder.R;
 
 import java.io.File;
 
-public class ProfileActivity extends AppCompatActivity {
+public class EditProfileFragment extends Fragment {
     ImageButton changeImage;
     ImageView profilePic;
     EditText nameText, gradeText, majorText;
     private static final int GALLERY_REQUEST_CODE = 100;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.edit_profile, container, false);
+        return view;
+    }
 
-        nameText = findViewById(R.id.nameText);
-        gradeText = findViewById(R.id.gradeText);
-        majorText = findViewById(R.id.majorText);
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        nameText = view.findViewById(R.id.nameText);
+        gradeText = view.findViewById(R.id.gradeText);
+        majorText = view.findViewById(R.id.majorText);
 
         String name =  nameText.getText().toString();
         String grade =  gradeText.getText().toString();
         String major =  majorText.getText().toString();
 
-        profilePic = (ImageView) findViewById(R.id.profilePic);
-        changeImage = (ImageButton) findViewById(R.id.changeImage);
+        profilePic = (ImageView) view.findViewById(R.id.profilePic);
+        changeImage = (ImageButton) view.findViewById(R.id.changeImage);
 
         changeImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +68,7 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivityForResult(photoGallery, GALLERY_REQUEST_CODE);
             }
 
-
+            /*
             protected void onActivityResult(int requestCode, int resultCode, Intent data) {
                 if (resultCode == Activity.RESULT_OK) {
                     if (requestCode == GALLERY_REQUEST_CODE) {
@@ -66,9 +80,12 @@ public class ProfileActivity extends AppCompatActivity {
                         String imgDecodableString = cursor.getString(columnIndex);
                         cursor.close();
                         profilePic.setImageBitmap(BitmapFactory.decodeFile(imgDecodableString));
-                        }
                     }
+
                 }
-            });
-        }
+            }
+
+             */
+        });
+    }
 }

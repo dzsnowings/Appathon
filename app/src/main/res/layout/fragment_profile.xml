@@ -9,7 +9,7 @@
     android:paddingTop="?attr/actionBarSize">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/profileText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/profileImage"
         android:layout_width="161dp"
         android:layout_height="184dp"
         app:layout_constraintBottom_toBottomOf="parent"
