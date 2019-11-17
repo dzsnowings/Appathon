@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.studybuddyfinder.ContentActivity;
 import com.example.studybuddyfinder.R;
@@ -62,11 +64,18 @@ public class CreateGroupFragment extends Fragment {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.d("GG", "Successfully added group");
-                                numGroups++;
                             }
                         });
+
+                numGroups++;
+                Fragment browseFragment = new BrowseFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fragment, browseFragment);
+                ft.addToBackStack(null);
+                ft.commit();
             }
-            });
+        });
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
