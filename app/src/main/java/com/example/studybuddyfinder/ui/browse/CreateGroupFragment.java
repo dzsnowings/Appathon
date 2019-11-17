@@ -28,7 +28,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
-public class CreateGroupFragment extends Fragment {
+
+public class CreateGroupFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+
     private static EditText className;
     private static int numGroups = 0;
 
@@ -43,12 +45,28 @@ public class CreateGroupFragment extends Fragment {
         SpinnerArray.add("AM");
         SpinnerArray.add("PM");
 
+        List<String> typeArray = new ArrayList<String>();
+        typeArray.add("Test");
+        typeArray.add("Homework");
+        typeArray.add("Study");
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_spinner_item, SpinnerArray);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        Spinner spinner = (Spinner) view.findViewById(R.id.timeSpinner);
-        spinner.setAdapter(adapter);
+        ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(this.getActivity(),
+                android.R.layout.simple_spinner_item, typeArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner spinner1 = (Spinner) view.findViewById(R.id.timeSpinner);
+        spinner1.setAdapter(adapter);
+
+        Spinner typeSpinner = (Spinner) view.findViewById(R.id.typeText);
+        typeSpinner.setAdapter(typeAdapter);
+
+        spinner1.setOnItemSelectedListener(this);
+        typeSpinner.setOnItemSelectedListener(this);
+
         className = view.findViewById(R.id.classText);
         Button makeGroup = view.findViewById(R.id.createButton);
         makeGroup.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +95,7 @@ public class CreateGroupFragment extends Fragment {
             }
         });
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 Object item = adapterView.getItemAtPosition(position);
@@ -96,6 +114,17 @@ public class CreateGroupFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
     public static String getClassName() {
         return className.getText().toString();
     }
@@ -104,3 +133,4 @@ public class CreateGroupFragment extends Fragment {
         return numGroups;
     }
 }
+
