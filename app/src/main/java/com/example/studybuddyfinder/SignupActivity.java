@@ -1,6 +1,5 @@
 package com.example.studybuddyfinder;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,16 +12,16 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_signup);
+        setContentView(R.layout.activity_signup);
 
         final EditText firstNameText = findViewById(R.id.firstName);
         final EditText lastNameText = findViewById(R.id.lastName);
         final EditText emailText = findViewById(R.id.email);
         final EditText phoneText = findViewById(R.id.phone);
-        final EditText usernameText = findViewById(R.id.username);
-        final EditText passwordText = findViewById(R.id.password);
+        final EditText usernameText = findViewById(R.id.signupUsername);
+        final EditText passwordText = findViewById(R.id.signupPassword);
         final EditText confirmText = findViewById(R.id.confirmPassword);
-        final Button signupButton = findViewById(R.id.signupButton);
+        final Button signupButton = findViewById(R.id.signupSignupButton);
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override

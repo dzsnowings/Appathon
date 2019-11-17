@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button loginButton = findViewById(R.id.loginButton);
-        final Button signupButton = findViewById(R.id.signupButton);
+        final Button loginButton = (Button) findViewById(R.id.loginButton);
+        final Button signupButton = (Button) findViewById(R.id.signupButton);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -34,18 +34,25 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.fragment_login);
+                setContentView(R.layout.activity_login);
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                MainActivity.this.startActivity(intent);
+                startActivity(intent);
+                /*
+                setContentView(R.layout.content_main);
+                Fragment loginView = new LoginFragment();
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction transaction = fm.beginTransaction();
+                transaction.replace(R.id.nav_host_fragment, loginView);
+                 */
             }
         });
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.fragment_signup);
+                setContentView(R.layout.activity_signup);
                 Intent intent = new Intent(MainActivity.this, SignupActivity.class);
-                MainActivity.this.startActivity(intent);
+                startActivity(intent);
             }
         });
     }

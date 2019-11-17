@@ -1,7 +1,10 @@
 package com.example.studybuddyfinder;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,12 +12,26 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_login);
+        setContentView(R.layout.activity_login);
 
-        EditText usernameText = findViewById(R.id.username);
-        EditText passwordText = findViewById(R.id.password);
+        final EditText usernameText = findViewById(R.id.loginUsername);
+        final EditText passwordText = findViewById(R.id.loginPassword);
+        final Button loginButton = findViewById(R.id.loginLoginButton);
 
-        String username = usernameText.getText().toString();
-        String password = passwordText.getText().toString();
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = usernameText.getText().toString();
+                String password = passwordText.getText().toString();
+
+                if (!password.equals(password)) {
+                    String message = "Successfully logged in.";
+                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                } else {
+                    String message = "Username and/or password is incorrect. Please try again.";
+                    Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
