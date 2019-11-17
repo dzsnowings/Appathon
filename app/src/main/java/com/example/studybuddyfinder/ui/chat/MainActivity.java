@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Message> messages;
 
     private EditText etMessage;
-    private ImageButton btnSend;
+    private ImageButton imageBtn;
 
     private Message currMessage;
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         rvMessages = findViewById(R.id.recyclerView);
         etMessage = findViewById(R.id.messageEditText);
-        btnSend = findViewById(R.id.imageButton);
+        imageBtn = findViewById(R.id.imageButton);
 
         messages = new ArrayList<>();
         messageAdapter = new MessageAdapter(messages);
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        btnSend.setOnClickListener(new View.OnClickListener() {
+        imageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String content = etMessage.getText().toString();
@@ -109,20 +109,3 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
-        /*
-        messages.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                DocumentReference docRef = FirebaseFirestore.getInstance().collection("messages").document(currMessage.getId());
-                Map<String, Object> updates = new HashMap<>();
-                updates.put("capital", FieldValue.delete());
-
-                docRef.update(updates).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {}
-                });
-                return false;
-            }
-        });
-
-        */
